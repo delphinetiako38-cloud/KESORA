@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Business
+        Dashoard</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <header> Business Dashoard</header>
+    {% if not user %}
+    <div class="=card">
+        <h3>login</h3>
+        <form method="post" action="/login">
+            <input name="password"
+            type="password" required>
+            <button>login</button>
+        </form>
+    </div>
+    <div class="card"
+    <h3>register</h3>
+    <form method="post" action="/register">
+        <input name="username" required>
+        <input name="password"
+        type="password" required>
+        <button>Create</button>
+    </form>
+</body>
+{% else %}
+<div class="card">
+    Bienvenue{{user}} |
+    <a href="/logout">logout</a>
+</div>
+<div class="card">
+    Revenu:{{stats.revenue}}
+    <br> 
+    cout:{{stats.cost}} <br> 
+    profit:{{stats.profit}}
+</div>
+<div class="card">
+    <h3>Ajouter produit</h3>
+    <form method="post"
+    action="/add">
+    <input name="name"
+    placeholder="Nom" required> 
+    <input name="buy"
+    placeholder="Achat"
+    required> 
+    <input name="sell"
+    placeholder="Vente"
+    required> 
+    <input name="sell"
+    placeholder="Vente"
+    required>
+    <input name="stock"
+    placeholder="stock"
+    required> 
+    <button>Ajouter</button>
+    </form>
+</div>
+<div class="card">
+    <table>
+        <tr><th>ID</th><th>Nom</th><th>Achat</th><th>Vente</th><th>stock</th></tr>
+{% for p in products %}
+<tr>
+    <td>{{loop.index}}</td>
+    <td>{{p.name}}</td>
+    <td>{{p.buy}}</td>
+    <td>{{p.sell}}</td>
+    <td>{{p.stock}}</td>
+ </tr>
+</div>
+   {% endif %}
+</div>
+</body>
+</html>
+

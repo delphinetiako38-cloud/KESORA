@@ -1,0 +1,4 @@
+var response=await
+http.get(Uri.parse("http://<VPS_IP>:8000/products));
+var products=
+jsonDecode(response.body);
