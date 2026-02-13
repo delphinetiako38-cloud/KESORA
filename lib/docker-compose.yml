@@ -1,0 +1,10 @@
+version:"3.9"
+services:
+business_platform:
+build:
+ports:
+-"8000:8000"
+volumes:
+-./
+business_platform:/app
+restart:always 

@@ -1,0 +1,10 @@
+version:"3.9"
+
+services:
+busness_platform:
+build:
+-"8000:8000"
+volumes:
+-./
+business_platform:/app/business_platform
+restart: always
